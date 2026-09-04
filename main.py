@@ -1,4 +1,4 @@
-from mfrc522 import MFRC522
+from mfrc522.MFRC522 import MFRC522
 import signal
 
 continue_reading = True
@@ -18,16 +18,14 @@ def end_read(signal, frame):
 
 signal.signal(signal.SIGINT, end_read)
 
-MIFAREReader = MFRC522.MFRC522()
+MIFAREReader = MFRC522()
 
 while continue_reading:
 
-	(status, TagType) = MIFAREReader.MFRC522_request(MIFAREReader.PICC_REQIDL)
+	(status, TagType) = MIFAREReader.MFRC522_Request(MIFAREReader.PICC_REQIDL)
 
 	if status == MIFAREReader.MI_OK:
-		(status, uid) = MIFAREReader.MFRC522_SelectTagSN()
-	if status == MIFAREReader.MI_OK:
-		print("UID: %s" % uidToString(uid))
-	else:
-		print("Error")
+		(status,uid) = MIFAREReader.MFRC522_Anticoll()
+		if status == MIFAREReader.MI_OK:
+			print("UID: %s" % uidToString(uid))
  
