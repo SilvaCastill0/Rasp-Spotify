@@ -1,9 +1,6 @@
 from mfrc522.MFRC522 import MFRC522
 import signal
-
-continue_reading = True
-
-#Function to read uid and conver it to a string
+import sys
 
 def uidToString(uid):
 	mystring = ""
@@ -11,21 +8,23 @@ def uidToString(uid):
 		mystring = format(i,'02X') + mystring
 	return mystring
 
-def end_read(signal, frame):
-	global continue_reading
-	print("Ending Read")
-	continue_reading = False
+def read_rfid():
 
-signal.signal(signal.SIGINT, end_read)
+	def end_read(signal, frame):
+		global continue_reading
+		print("Ending Read")
+		sys.exit(0)
 
-MIFAREReader = MFRC522()
+	signal.signal(signal.SIGINT, end_read)
 
-while continue_reading:
+	MIFAREReader = MFRC522()
 
-	(status, TagType) = MIFAREReader.MFRC522_Request(MIFAREReader.PICC_REQIDL)
+	while True:
 
-	if status == MIFAREReader.MI_OK:
-		(status,uid) = MIFAREReader.MFRC522_Anticoll()
+		(status, TagType) = MIFAREReader.MFRC522_Request(MIFAREReader.PICC_REQIDL)
+
 		if status == MIFAREReader.MI_OK:
-			print("UID: %s" % uidToString(uid))
+			(status,uid) = MIFAREReader.MFRC522_Anticoll()
+			if status == MIFAREReader.MI_OK:
+				print("UID: %s" % uidToString(uid))
  
