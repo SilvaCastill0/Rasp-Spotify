@@ -22,3 +22,47 @@ def play(id):
 		"play",
 		uri
 	])
+	
+def pause():
+	subprocess.run([
+		"soloist",
+		"ctl",
+		"pause"
+	])
+
+def resume():
+	subprocess.run([
+		"soloist",
+		"ctl",
+		"play"
+	])
+	
+def next_track():
+	subprocess.run([
+		"soloist",
+		"ctl",
+		"next"
+	])
+	
+def prev_track():
+	subprocess.run([
+		"soloist",
+		"ctl",
+		"prev"
+	])
+	
+def set_volume(db):
+	subprocess.run([
+		"soloist",
+		"ctl",
+		"volume",
+		db
+	])
+	
+def seek(ms):
+	subprocess.run([
+		"soloist",
+		"ctl",
+		"seek",
+		ms
+	])
