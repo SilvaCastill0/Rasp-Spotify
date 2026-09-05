@@ -26,5 +26,5 @@ def read_rfid():
 		if status == MIFAREReader.MI_OK:
 			(status,uid) = MIFAREReader.MFRC522_Anticoll()
 			if status == MIFAREReader.MI_OK:
-				print("UID: %s" % uidToString(uid))
- 
+				return uidToString(uid)
+
