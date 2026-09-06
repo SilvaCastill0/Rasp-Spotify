@@ -79,5 +79,5 @@ def now_playing():
 	 )
 	data = json.loads(result.stdout)
 
-	artist = data["artist"][0]["name"]
+	artist = data["item"]["decorations"][]
 
