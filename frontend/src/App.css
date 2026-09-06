@@ -1,4 +1,22 @@
-.play-button {
-  width: 200px;
-  height: 200px
+.cover-img {
+  max-width: 100%;
+  height: auto;
+}
+
+.cover-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover{
+  width: 450px;
+  height: 450px;
+}
+
+.centered {
+  position: fixed;
+  top: 12%;
+  left: 5%;
+
 }

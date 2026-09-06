@@ -79,5 +79,21 @@ def now_playing():
 	 )
 	data = json.loads(result.stdout)
 
-	artist = data["item"]["decorations"][]
+	artist = data["item"]["decorations"]["creators"][0]["entity"]["decorations"]["identity"]["name"]
+	state = data["status"]
+	track = data["item"]["decorations"]["identity"]["name"]
+	album = data["item"]["decorations"]["parent"]["entity"]["decorations"]["identity"]["name"]
+	cover = data["item"]["decorations"]["visual_identity"]["cover"][2]
+	position = data["position"]["position_ms"]
+	duration = data["item"]["decorations"]["playback"]["duration_ms"]
+
+	return {
+		"artist": artist,
+		"state": state,
+		"track": track,
+		"album": album,
+		"cover": cover,
+		"position": position,
+		"duration": duration
+	}
 
