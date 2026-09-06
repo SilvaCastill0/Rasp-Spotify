@@ -1,5 +1,6 @@
 import os
 import subprocess
+import json
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -66,3 +67,17 @@ def seek(ms):
 		"seek",
 		ms
 	])
+
+def now_playing():
+	result =  subprocess.run([
+                "soloist",
+                "ctl",
+                "now",
+		"--json"],
+		capture_output=True,
+		text=True
+	 )
+	data = json.loads(result.stdout)
+
+	artist = data["artist"][0]["name"]
+

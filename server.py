@@ -35,5 +35,9 @@ def seek_route():
 	seek("10000")
 	return "found"
 
+@app.route("/now")
+def now_route():
+	return now_playing()
+
 if __name__ == "__main__":
 	app.run(host="127.0.0.1", port=5000)
