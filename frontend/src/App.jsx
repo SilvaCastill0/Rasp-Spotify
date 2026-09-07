@@ -19,16 +19,28 @@ function App() {
   }, []);
 
   return (
-    <div className="centered">
+    <>
       {data && (
-        <div className="cover">
-          <img className="cover-img"
-          src = {data.cover.url}
-          alt="Album Cover" />
+        <div className="box">
+          <div className="table">
+            <div className="left">
+                <img className="cover-img"
+                src = {data.cover.url}
+                alt="Album Cover" />
+            </div>
+            <div className="right">
+              <div className="nest">
+                <span-track>{data.track}</span-track>
+              </div>
+              <div>
+                <span-artist>{data.artist}</span-artist>
+              </div>
+            </div>  
+          </div>
         </div>
+        
       )}
-      <div> Hey </div>
-    </div>
+    </>
   );
 }
 

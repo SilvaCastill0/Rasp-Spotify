@@ -1,22 +1,51 @@
+
+
 .cover-img {
-  max-width: 100%;
-  height: auto;
-}
-
-.cover-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.cover{
+  display:block;
   width: 450px;
   height: 450px;
+
 }
 
-.centered {
-  position: fixed;
-  top: 12%;
-  left: 5%;
+.box {
+  max-width: 900px;
+  margin: 0 auto;
+}
 
+.table {
+  display: table;
+  border-collapse: collapse;
+  padding: 0;
+  width:100%;
+}
+
+.left, .right {
+  border-collapse: collapse;
+  display: table-cell;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+
+.left{
+  width: 450px;
+  padding: 65px 10px 0px 0px;
+}
+
+.right {
+  padding: 175px 0px 0px 25px;
+}
+
+.nest {
+  padding-bottom: 50px;
+}
+
+span-track{
+  font-size: 3em;
+  color: white;
+}
+
+span-artist{
+  font-size: 1.3em;
+  color: white;
 }

@@ -83,7 +83,7 @@ def now_playing():
 	state = data["status"]
 	track = data["item"]["decorations"]["identity"]["name"]
 	album = data["item"]["decorations"]["parent"]["entity"]["decorations"]["identity"]["name"]
-	cover = data["item"]["decorations"]["visual_identity"]["cover"][2]
+	cover = data["item"]["decorations"]["visual_identity"]["cover"][1]
 	position = data["position"]["position_ms"]
 	duration = data["item"]["decorations"]["playback"]["duration_ms"]
 
